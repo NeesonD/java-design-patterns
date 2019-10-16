@@ -1,6 +1,6 @@
 /**
  * The MIT License
- * Copyright (c) 2014 Ilkka Seppälä
+ * Copyright © 2014-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,8 +22,9 @@
  */
 package com.iluwatar.queue.load.leveling;
 
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 /**
  * 
@@ -38,6 +39,6 @@ public class MessageTest {
     // Parameterized constructor test.
     String testMsg = "Message Test";
     Message msg = new Message(testMsg);
-    assertEquals(msg.getMsg(), testMsg);
+    assertEquals(testMsg, msg.getMsg());
   }
 }

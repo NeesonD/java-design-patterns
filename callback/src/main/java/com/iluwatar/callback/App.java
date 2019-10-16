@@ -1,6 +1,6 @@
 /**
  * The MIT License
- * Copyright (c) 2014-2016 Ilkka Seppälä
+ * Copyright © 2014-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,12 +41,7 @@ public class App {
    */
   public static void main(String[] args) {
     Task task = new SimpleTask();
-    Callback callback = new Callback() {
-      @Override
-      public void call() {
-        LOGGER.info("I'm done now.");
-      }
-    };
+    Callback callback = () -> LOGGER.info("I'm done now.");
     task.executeWith(callback);
   }
 }

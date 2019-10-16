@@ -1,6 +1,6 @@
 /**
  * The MIT License
- * Copyright (c) 2014-2016 Ilkka Seppälä
+ * Copyright © 2014-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -141,7 +141,7 @@ public abstract class AbstractNioChannel {
    * when this method returns. It will be written when the channel is flushed.
    * 
    * <p>
-   * This method is used by the {@link ChannelHandler} to send reply back to the client. <br/>
+   * This method is used by the {@link ChannelHandler} to send reply back to the client. <br>
    * Example:
    * 
    * <pre>

@@ -1,6 +1,6 @@
 /**
  * The MIT License
- * Copyright (c) 2014-2016 Ilkka Seppälä
+ * Copyright © 2014-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,7 +25,9 @@ package com.iluwatar.value.object;
 /**
  * HeroStat is a value object
  * 
- * {@link http://docs.oracle.com/javase/8/docs/api/java/lang/doc-files/ValueBased.html}
+ * @see <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/doc-files/ValueBased.html">
+ * http://docs.oracle.com/javase/8/docs/api/java/lang/doc-files/ValueBased.html
+ * </a>
  */
 public class HeroStat {
 
@@ -37,7 +39,6 @@ public class HeroStat {
 
   // All constructors must be private.
   private HeroStat(int strength, int intelligence, int luck) {
-    super();
     this.strength = strength;
     this.intelligence = intelligence;
     this.luck = luck;

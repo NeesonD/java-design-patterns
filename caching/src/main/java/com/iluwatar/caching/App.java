@@ -1,6 +1,6 @@
 /**
  * The MIT License
- * Copyright (c) 2014-2016 Ilkka Seppälä
+ * Copyright © 2014-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -52,12 +52,12 @@ import org.slf4j.LoggerFactory;
  * whether the data is coming from the cache or the DB (i.e. separation of concern). The AppManager
  * ({@link AppManager}) handles the transaction of data to-and-from the underlying data store
  * (depending on the preferred caching policy/strategy).
- *
- * <i>App --> AppManager --> CacheStore/LRUCache/CachingPolicy --> DBManager</i>
+ * <p>
+ * <i>{@literal App --> AppManager --> CacheStore/LRUCache/CachingPolicy --> DBManager} </i>
  * </p>
  *
  * @see CacheStore
- * @See LRUCache
+ * @see LruCache
  * @see CachingPolicy
  *
  */

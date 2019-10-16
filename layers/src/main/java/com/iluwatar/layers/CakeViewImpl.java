@@ -1,6 +1,6 @@
 /**
  * The MIT License
- * Copyright (c) 2014-2016 Ilkka Seppälä
+ * Copyright © 2014-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,6 +41,6 @@ public class CakeViewImpl implements View {
   }
 
   public void render() {
-    cakeBakingService.getAllCakes().stream().forEach(cake -> LOGGER.info(cake.toString()));
+    cakeBakingService.getAllCakes().forEach(cake -> LOGGER.info(cake.toString()));
   }
 }

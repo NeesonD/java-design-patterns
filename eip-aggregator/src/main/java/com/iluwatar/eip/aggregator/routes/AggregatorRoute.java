@@ -1,6 +1,6 @@
 /**
  * The MIT License
- * Copyright (c) 2014 Ilkka Seppälä
+ * Copyright © 2014-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -51,7 +51,7 @@ public class AggregatorRoute extends RouteBuilder {
    * @throws Exception in case of exception during configuration
    */
   @Override
-  public void configure() throws Exception {
+  public void configure() {
     // Main route
     from("{{entry}}").aggregate(constant(true), aggregator)
         .completionSize(3).completionInterval(2000)

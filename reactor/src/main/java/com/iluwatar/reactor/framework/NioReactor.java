@@ -1,6 +1,6 @@
 /**
  * The MIT License
- * Copyright (c) 2014-2016 Ilkka Seppälä
+ * Copyright © 2014-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -84,11 +84,8 @@ public class NioReactor {
 
   /**
    * Starts the reactor event loop in a new thread.
-   * 
-   * @throws IOException
-   *           if any I/O error occurs.
    */
-  public void start() throws IOException {
+  public void start() {
     reactorMain.execute(() -> {
       try {
         LOGGER.info("Reactor started, waiting for events...");

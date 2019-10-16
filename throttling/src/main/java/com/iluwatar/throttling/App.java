@@ -1,6 +1,6 @@
 /**
  * The MIT License
- * Copyright (c) 2014-2016 Ilkka Seppälä
+ * Copyright © 2014-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -20,7 +20,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-
 package com.iluwatar.throttling;
 
 import org.slf4j.Logger;
@@ -53,14 +52,14 @@ public class App {
    * @param args main arguments
    */
   public static void main(String[] args) {
-
-    Tenant adidas = new Tenant("Adidas", 5);
-    Tenant nike = new Tenant("Nike", 6);
+    CallsCount callsCount = new CallsCount();
+    Tenant adidas = new Tenant("Adidas", 5, callsCount);
+    Tenant nike = new Tenant("Nike", 6, callsCount);
 
     ExecutorService executorService = Executors.newFixedThreadPool(2);
     
-    executorService.execute(() -> makeServiceCalls(adidas));
-    executorService.execute(() -> makeServiceCalls(nike));
+    executorService.execute(() -> makeServiceCalls(adidas, callsCount));
+    executorService.execute(() -> makeServiceCalls(nike, callsCount));
     
     executorService.shutdown();
     try {
@@ -72,11 +71,10 @@ public class App {
 
   /**
    * Make calls to the B2BService dummy API
-   * @param service an instance of B2BService
    */
-  private static void makeServiceCalls(Tenant tenant) {
-    Throttler timer = new ThrottleTimerImpl(10);
-    B2BService service = new B2BService(timer);
+  private static void makeServiceCalls(Tenant tenant, CallsCount callsCount) {
+    Throttler timer = new ThrottleTimerImpl(10, callsCount);
+    B2BService service = new B2BService(timer, callsCount);
     for (int i = 0; i < 20; i++) {
       service.dummyCustomerApi(tenant);
 //    Sleep is introduced to keep the output in check and easy to view and analyze the results.

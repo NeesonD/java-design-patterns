@@ -1,6 +1,6 @@
 /**
  * The MIT License
- * Copyright (c) 2014-2016 Ilkka Seppälä
+ * Copyright © 2014-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
- * Generic observer inspired by Java Generics and Collection by Naftalin & Wadler
+ * Generic observer inspired by Java Generics and Collection by {@literal Naftalin & Wadler}
  *
  * @param <S> Subject
  * @param <O> Observer

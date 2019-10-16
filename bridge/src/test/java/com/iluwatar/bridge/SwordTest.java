@@ -1,6 +1,6 @@
 /**
  * The MIT License
- * Copyright (c) 2014-2016 Ilkka Seppälä
+ * Copyright © 2014-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,11 +22,10 @@
  */
 package com.iluwatar.bridge;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.spy;
-import static org.mockito.Mockito.verify;
 
 /**
  * Tests for sword
@@ -38,7 +37,7 @@ public class SwordTest extends WeaponTest {
    * underlying weapon implementation.
    */
   @Test
-  public void testSword() throws Exception {
+  public void testSword() {
     final Sword sword = spy(new Sword(mock(FlyingEnchantment.class)));
     testBasicWeaponActions(sword);
   }

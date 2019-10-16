@@ -34,7 +34,7 @@ Wikipedia says
 
 Translating the kingdom example above. First of all we have some interfaces and implementation for the objects in the kingdom
 
-```
+```java
 public interface Castle {
   String getDescription();
 }
@@ -74,7 +74,7 @@ public class ElfArmy implements Army {
 
 Then we have the abstraction and implementations for the kingdom factory
 
-```
+```java
 public interface KingdomFactory {
   Castle createCastle();
   King createKing();
@@ -108,7 +108,7 @@ public class OrcKingdomFactory implements KingdomFactory {
 
 Now we have our abstract factory that lets us make family of related objects i.e. Elven kingdom factory creates Elven castle, king and army etc.
 
-```
+```java
 KingdomFactory factory = new ElfKingdomFactory();
 Castle castle = factory.createCastle();
 King king = factory.createKing();
@@ -123,7 +123,7 @@ Now, we can design a factory for our different kingdom factories. In this exampl
 The client can use FactoryMaker to create the desired concrete factory which, in turn, will produce different concrete objects (Army, King, Castle).  
 In this example, we also used an enum to parameterize which type of kingdom factory the client will ask for.
 
-```
+```java
 public static class FactoryMaker {
 
   public enum KingdomType {
@@ -169,15 +169,29 @@ Use the Abstract Factory pattern when
 *	you need a run-time value to construct a particular dependency
 *	you want to decide which product to call from a family at runtime.
 *	you need to supply one or more parameters only known at run-time before you can resolve a dependency.
+* when you need consistency among products
+* you don’t want to change existing code when adding new products or families of products to the program.
 
 ## Use Cases:	
 
 *	Selecting to call the appropriate implementation of FileSystemAcmeService or DatabaseAcmeService or NetworkAcmeService at runtime.
 *	Unit test case writing becomes much easier
+* UI tools for different OS
 
 ## Consequences:
 
 *	Dependency injection in java hides the service class dependencies that can lead to runtime errors that would have been caught at compile time.
+* While the pattern is great when creating predefined objects, adding the new ones might be challenging.
+* The code may become more complicated than it should be, since a lot of new interfaces and classes are introduced along with the pattern.
+
+
+## Tutorial
+* [Abstract Factory Pattern Tutorial](https://www.journaldev.com/1418/abstract-factory-design-pattern-in-java) 
+
+## Presentations
+
+* [Abstract Factory Pattern](etc/presentation.html) 
+
 
 ## Real world examples
 

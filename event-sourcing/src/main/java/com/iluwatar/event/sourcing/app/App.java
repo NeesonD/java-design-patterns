@@ -1,6 +1,6 @@
 /**
  * The MIT License
- * Copyright (c) 2014 Ilkka Seppälä
+ * Copyright © 2014-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -74,7 +74,7 @@ public class App {
     LOGGER.info("Running the system first time............");
     eventProcessor.reset();
 
-    LOGGER.info("Creating th accounts............");
+    LOGGER.info("Creating the accounts............");
 
     eventProcessor.process(new AccountCreateEvent(
         0, new Date().getTime(), ACCOUNT_OF_DAENERYS, "Daenerys Targaryen"));
@@ -98,7 +98,7 @@ public class App {
     LOGGER.info(AccountAggregate.getAccount(ACCOUNT_OF_DAENERYS).toString());
     LOGGER.info(AccountAggregate.getAccount(ACCOUNT_OF_JON).toString());
 
-    LOGGER.info("At that point system had a shot down, state in memory is cleared............");
+    LOGGER.info("At that point system had a shut down, state in memory is cleared............");
     AccountAggregate.resetState();
 
     LOGGER.info("Recover the system by the events in journal file............");

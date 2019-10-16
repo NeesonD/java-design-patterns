@@ -1,6 +1,6 @@
 /**
  * The MIT License
- * Copyright (c) 2014-2016 Ilkka Seppälä
+ * Copyright © 2014-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,22 +22,22 @@
  */
 package com.iluwatar.repository;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import javax.annotation.Resource;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.support.AnnotationConfigContextLoader;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import com.google.common.collect.Lists;
 
@@ -46,8 +46,8 @@ import com.google.common.collect.Lists;
  * by {@link org.springframework.data.jpa.domain.Specification} are also test.
  * 
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(classes = { AppConfig.class }, loader = AnnotationConfigContextLoader.class)
+@ExtendWith(SpringExtension.class)
+@SpringBootTest(classes = { AppConfig.class })
 public class AnnotationBasedRepositoryTest {
 
   @Resource
@@ -63,10 +63,10 @@ public class AnnotationBasedRepositoryTest {
   /**
    * Prepare data for test
    */
-  @Before
+  @BeforeEach
   public void setup() {
 
-    repository.save(persons);
+    repository.saveAll(persons);
   }
 
   @Test
@@ -119,11 +119,11 @@ public class AnnotationBasedRepositoryTest {
   @Test
   public void testFindOneByNameEqualSpec() {
 
-    Person actual = repository.findOne(new PersonSpecifications.NameEqualSpec("Terry"));
-    assertEquals(terry, actual);
+    Optional<Person> actual = repository.findOne(new PersonSpecifications.NameEqualSpec("Terry"));
+    assertEquals(terry, actual.get());
   }
 
-  @After
+  @AfterEach
   public void cleanup() {
 
     repository.deleteAll();

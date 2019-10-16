@@ -1,6 +1,6 @@
 /**
  * The MIT License
- * Copyright (c) 2014-2016 Ilkka Seppälä
+ * Copyright © 2014-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,7 +27,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 
- * Worker implements {@link Runnable} and thus can be executed by {@link ExecutorService}
+ * Worker implements {@link Runnable} and thus can be executed by {@link java.util.concurrent.ExecutorService}
  *
  */
 public class Worker implements Runnable {

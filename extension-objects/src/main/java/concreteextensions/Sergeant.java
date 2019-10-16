@@ -1,6 +1,6 @@
 /**
  * The MIT License
- * Copyright (c) 2014 Ilkka Seppälä
+ * Copyright © 2014-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -32,16 +32,16 @@ import units.SergeantUnit;
  */
 public class Sergeant implements SergeantExtension {
 
+  private static final Logger LOGGER = LoggerFactory.getLogger(Sergeant.class);
+
   private SergeantUnit unit;
 
   public Sergeant(SergeantUnit sergeantUnit) {
     this.unit = sergeantUnit;
   }
 
-  final Logger logger = LoggerFactory.getLogger(Sergeant.class);
-
   @Override
   public void sergeantReady() {
-    logger.info("[Sergeant] " + unit.getName() + " is ready! ");
+    LOGGER.info("[Sergeant] " + unit.getName() + " is ready! ");
   }
 }

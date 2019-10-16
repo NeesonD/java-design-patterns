@@ -1,6 +1,6 @@
 /**
  * The MIT License
- * Copyright (c) 2016 Ilkka Seppälä
+ * Copyright © 2014-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,7 @@ package com.iluwatar.objectmother;
 public final class RoyaltyObjectMother {
 
   /**
-   * Method to create a sober and unhappy king. The standard paramters are set.
+   * Method to create a sober and unhappy king. The standard parameters are set.
    * @return An instance of {@link com.iluwatar.objectmother.King} with the standard properties.
    */
   public static King createSoberUnhappyKing() {

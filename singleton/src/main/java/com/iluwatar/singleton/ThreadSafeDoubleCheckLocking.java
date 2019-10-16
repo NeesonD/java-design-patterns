@@ -1,6 +1,6 @@
 /**
  * The MIT License
- * Copyright (c) 2014-2016 Ilkka Seppälä
+ * Copyright © 2014-2019 Ilkka Seppälä
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,9 +24,9 @@ package com.iluwatar.singleton;
 
 /**
  * Double check locking
- * <p/>
+ * <p>
  * http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html
- * <p/>
+ * <p>
  * Broken under Java 1.4.
  *
  * @author mortezaadi@gmail.com
@@ -35,12 +35,16 @@ public final class ThreadSafeDoubleCheckLocking {
 
   private static volatile ThreadSafeDoubleCheckLocking instance;
 
+  private static boolean flag = true;
+
   /**
    * private constructor to prevent client from instantiating.
    */
   private ThreadSafeDoubleCheckLocking() {
     // to prevent instantiating by Reflection call
-    if (instance != null) {
+    if (flag) {
+      flag = false;
+    } else {
       throw new IllegalStateException("Already initialized.");
     }
   }
